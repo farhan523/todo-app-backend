@@ -8,4 +8,6 @@ const task = new Schema(
     { timestamps: true }
 );
 
-module.exports = model("Task", task);
+let Task =   model("Task", task);
+
+module.exports = Task;
