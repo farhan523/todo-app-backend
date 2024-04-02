@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 var createError = require("http-errors");
 require("dotenv").config();
+const port = process.env.PORT || 500;
 
 const taskRouter = require("./Routes/task");
 
@@ -36,8 +37,8 @@ app.use(function (err, req, res, next) {
 mongoose
     .connect(`mongodb+srv://${process.env.user}:${process.env.password}@cluster0.bnacrmq.mongodb.net/testTodoDatabase?retryWrites=true&w=majority&appName=Cluster0`)
     .then(() => {
-		app.listen(3001, () => {
-			console.log("listening on port 3001");
+		app.listen(port, () => {
+			console.log("listening on port " + port);
 		});
     })
     .catch((error) => {
